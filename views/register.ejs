@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/css/forms.css">
 </head>
 
 <body>
@@ -19,8 +20,24 @@
         </ul>
     </nav>
 
-    <h1>Admin page</h1>
-    <a href="/admin">Admin</a>
+    <div class="center">
+
+        <div style="margin-top:3%;">
+            <p style="
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 150%; 
+             ">Shto Mbikqyres</p>
+            <form action="/registerForm" method="POST">
+                <input type="text" name="emri" placeholder="Emri">
+                <input type="text" name="mbiemri" placeholder="Mbiemri">
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+                <input type="number" name="kontakti" placeholder="Kontakti">
+                <input type="submit" name="" id="">
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>

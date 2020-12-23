@@ -41,3 +41,8 @@ nav ul a {
 nav .logoBox {
     flex-grow:2;
 }
+
+.center {
+    display: flex;
+    justify-content: center;
+}
