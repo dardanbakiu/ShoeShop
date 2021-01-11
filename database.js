@@ -1,4 +1,5 @@
 const mysql = require('mysql2')
+const { get } = require('./routes/registerRoute')
 
 const dbCon = mysql.createPool({
     user: process.env.DB_USER,

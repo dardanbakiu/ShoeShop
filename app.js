@@ -21,11 +21,13 @@ const home = require('./routes/homeRouter')
 const admin = require('./routes/adminRoute')
 const register = require('./routes/registerRoute')
 const logout = require('./routes/logoutRoute')
+const login = require('./routes/loginRoute')
 
 app.use(home)
 app.use(register)
 app.use(admin)
 app.use(logout)
+app.use(login)
 
 const port = 3000
 app.listen(port)
