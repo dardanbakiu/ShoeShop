@@ -2,17 +2,16 @@ const express = require('express')
 const router = express.Router()
 const multer = require('multer')
 const path = require('path')
+const dbCon = require('../database')
 
 router.get('/shtoKepuce', (req, res) => {
     res.render('shtoKepuce', { err: '' })
 })
 
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'static');
-    },
+    destination: './static/uploads',
     filename: (req, file, cb) => {
-        cb(null, path.extname(file.originalname))
+        cb(null, file.originalname)
     }
 })
 
@@ -25,22 +24,28 @@ const storage = multer.diskStorage({
 //     }
 // }/
 
-const upload = multer({
-    // dest: '../static/img',
-    storage: storage,
-    // fileFilter: filefilter
+
+
+router.post('/shtoKepuceForm', (req, res) => {
+    const upload = multer({
+        storage: storage
+    }).single('image')
+
+
+    upload(req, res, (err) => {
+        // console.log(req.file.originalname)
+        const emriFirmes = req.body.emriFirmes
+        const emriKpuces = req.body.emriKpuces
+        const madhesia = req.body.madhesia
+        const cmimi = req.body.cmimi
+        const emriFotos = req.file.originalname
+
+        const query = `INSERT INTO kepucet(firma,emrikpuces,madhesia,emrifotos,cmimi) VALUES("${emriFirmes}","${emriKpuces}",${madhesia},"${emriFotos}",${cmimi})`
+        dbCon.execute(query)
+        res.render('shtoKepuce', { err: 'u shtua ne databaze' })
+
+    })
+
 })
-
-router.post('/shtoKepuceForm', upload.single('image'), (req, res) => {
-    try {
-        console.log('u upload')
-        res.redirect('/shtoKepuce')
-    }
-    catch {
-        console.log('nuk u upload')
-    }
-})
-
-
 
 module.exports = router
