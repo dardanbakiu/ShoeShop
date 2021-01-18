@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="stylesheet" href="/static/css/slider.css">
+    <link rel="stylesheet" href="/static/css/forms.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logoBox">
+            <img width="40" src="/static/img/logo.png" alt="">
+        </div>
+        <ul>
+            <li><a href="/">Ballina</a></li>
+            <li><a href="/produktet">Produktet</a></li>
+            <li><a href="/rrethNesh">Rreth Nesh</a></li>
+            <li><a href="/login"><img src="/static/img/user.png" width="30"></a></li>
+        </ul>
+    </nav>
+
+    <div class="center">
+
+        <div>
+
+            <p class="title">Shto Kepuce</p>
+            <form action="shtoKepuceForm" method="POST" enctype="multipart/form-data">
+                <input type="text" name="emriFirmes" id="" placeholder="Firma">
+                <input type="text" name="emriKpuces" id="" placeholder="Emri Kepuces">
+                <input type="text" name="madhesia" id="" placeholder="Madhesia e kepuces">
+                <input type="number" name="cmimi" id="" placeholder="Cmimi">
+                <input type="file" name="image" id="">
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

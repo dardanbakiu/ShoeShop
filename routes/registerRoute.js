@@ -34,18 +34,32 @@ router.post('/registerForm', (req, res) => {
         text: `Verifiko Llogarine http://localhost:3000/verify/${uuid}`
     };
 
-    transporter.sendMail(mailOptions, (err, info) => {
-        if (err) console.log(error);
-        else {
-            console.log('Email u dergua me sukses! ');
-        }
-    });
 
-    bcrypt.hash(password, 10, (err, hash) => {
-        const query = `INSERT INTO mbikqyresit(emri,mbiemri,email,password,kontakti,uuid,verified) VALUES("${emri}","${mbiemri}","${email}","${hash}","${kontakti}","${uuid}","${verified}")`
-        dbCon.execute(query)
-        res.render('register', { isAdded: 'u shtua ne databaze' })
+
+    const emailQuery = `SELECT * FROM mbikqyresit WHERE email="${email}"`
+    dbCon.query(emailQuery, (err, result, row) => {
+        if (result.length > 0) {
+            res.render('register', { isAdded: 'Ju tashme keni nje llogari' })
+        }
+
+        else {
+
+            transporter.sendMail(mailOptions, (err, info) => {
+                if (err) console.log(error);
+                else {
+                    console.log('Email u dergua me sukses! ');
+                }
+            });
+
+            bcrypt.hash(password, 10, (err, hash) => {
+                const query = `INSERT INTO mbikqyresit(emri,mbiemri,email,password,kontakti,uuid,verified) VALUES("${emri}","${mbiemri}","${email}","${hash}","${kontakti}","${uuid}","${verified}")`
+                dbCon.execute(query)
+                res.render('register', { isAdded: 'u shtua ne databaze' })
+            })
+        }
     })
+
+
 })
 
 router.get('/verify/:id', (req, res) => {

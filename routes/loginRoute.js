@@ -24,6 +24,7 @@ router.post('/loginForm', (req, res) => {
             bcrypt.compare(password, dbPassword, (err, isLogged) => {
                 if (isLogged) {
                     console.log('jeni loguar')
+                    
                 }
                 else {
                     console.log('password eshte gabim')
