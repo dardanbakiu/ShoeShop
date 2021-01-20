@@ -5,10 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .shoeImg {
+            width: 300px;
+        }
+    </style>
+    <link rel="stylesheet" href="/static/css/navbar.css">
 </head>
 
 <body>
-    
+    <nav>
+        <div class="logoBox">
+            <img width="40" src="/static/img/logo.png" alt="">
+        </div>
+        <ul>
+            <li><a href="/">Ballina</a></li>
+            <li><a href="/produktet">Produktet</a></li>
+            <li><a href="/rrethNesh">Rreth Nesh</a></li>
+            <li><a href="/login"><img src="/static/img/user.png" width="30"></a></li>
+        </ul>
+    </nav>
+
+    <div style="margin:1% 40%;display: flex; justify-content: center; justify-content: space-around;">
+        <a href="/produktet/nike" target="blank">Nike</a>
+        <a href="/produktet/adidas" target="blank">Adidas</a>
+    </div>
+
+    <% for(let i=0 ; i < kepucet.length ; i++) { %>
+        <img class="shoeImg" src="/static/uploads/<%-kepucet[i].emrifotos%>" alt="">
+        <% } %>
 </body>
 
 </html>
