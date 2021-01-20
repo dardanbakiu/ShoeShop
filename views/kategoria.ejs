@@ -29,10 +29,18 @@
     <div style="margin:1% 40%;display: flex; justify-content: center; justify-content: space-around;">
         <a href="/produktet/nike" target="blank">Nike</a>
         <a href="/produktet/adidas" target="blank">Adidas</a>
+        <a href="/produktet/jordans" target='blank'>Jordans</a>
     </div>
 
     <% for(let i=0 ; i < kepucet.length ; i++) { %>
-        <img class="shoeImg" src="/static/uploads/<%-kepucet[i].emrifotos%>" alt="">
+        <div style="display: inline-block; margin: 1%">
+            <img class="shoeImg" src="/static/uploads/<%-kepucet[i].emrifotos%>" alt="">
+            <p>Madhesia : <%-kepucet[i].madhesia%>
+            </p>
+            <p>Cmimi : <%-kepucet[i].cmimi%>
+            </p>
+            <a href="/produktet/blej/<%-kepucet[i].id%>"><button>Blej</button></a>
+        </div>
         <% } %>
 </body>
 

@@ -18,4 +18,12 @@ router.get('/produktet/:kategoria', (req, res) => {
     })
 })
 
+router.get('/produktet/blej/:id', (req, res) => {
+    const id = req.params.id
+    const query = `SELECT * FROM kepucet WHERE id=${id}`
+    dbCon.query(query, (err, result, fields) => {
+        res.render('blej', { kepuca: result[0] })
+    })
+})
+
 module.exports = router
