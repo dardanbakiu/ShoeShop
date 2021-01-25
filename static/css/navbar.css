@@ -45,4 +45,16 @@ nav .logoBox {
 .center {
     display: flex;
     justify-content: center;
+    text-align: center;
+}
+
+.third-text {
+    text-transform: uppercase;
+    font-size: 200%;
+    text-align: center;
+    margin:5% 0 1% 0 ;
+    letter-spacing: 4px;
+    color:darkgray;
+
+    animation:moveRight 3s ease;
 }

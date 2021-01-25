@@ -6,19 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="/static/css/navbar.css">
+    <link rel="stylesheet" href="/static/css/forms.css">
 </head>
 
 <body>
 
-    <div style="display: inline-block; margin: 1%">
-        <img class="shoeImg" src="/static/uploads/<%-kepuca.emrifotos%>" alt="">
-        <p>Madhesia : <%-kepuca.madhesia%>
-        </p>
-        <p>Cmimi : <%-kepuca.cmimi%>
-        </p>
-        <a href="/produktet/blej/<%-kepuca.id%>"><button>Blej</button></a>
+    <div style="display: flex;">
+        <div style="margin: 1%">
+            <img class="shoeImg" src="/static/uploads/<%-kepuca.emrifotos%>" alt="">
+            <p>Madhesia : <%-kepuca.madhesia%>
+            </p>
+            <p>Cmimi : <%-kepuca.cmimi%>
+            </p>
+            <p>Emri Kepuces : <%-kepuca.emrikepuces%>
+            </p>
+            <p>Firma : <%-kepuca.firma%>
+            </p>
+            <a href="/produktet/blej/<%-kepuca.id%>"><button>Blej</button></a>
+        </div>
+        <div style="margin: 2% 15%">
+            <h2 style="text-align: center;">Beje Porosine</h2>
+            <form action="/checkout" method="POST">
+                <input type="text" name="emri" id="" placeholder="Emri Mbiemri">
+                <input type="number" name="cardnumber" id="" placeholder="Card Number">
+                <input type="text" name="cvv" id="" placeholder="cvv">
+                <label for="">Expire Date</label>
+                <input type="date" name="expdate" id="">
+                <input type="text" name="adresa" placeholder="Adresa" id="">
+                <input type="number" name="numritel" id="" placeholder="Nr tel">
+                <input type="submit" value="Blej">
+            </form>
+        </div>
     </div>
-
 </body>
 
 </html>
