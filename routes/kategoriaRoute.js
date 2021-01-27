@@ -26,4 +26,18 @@ router.get('/produktet/blej/:id', (req, res) => {
     })
 })
 
+router.post('/checkout/:id', (req, res) => {
+    const id = req.params.id
+    console.log(id)
+    let { emri, cardnumber, cvv, expdate, adresa, numritel } = req.body
+    expdate = String(expdate)
+    const deleteShoeQuery = `DELETE FROM kepucet WHERE id=${id}`
+    dbCon.execute(deleteShoeQuery)
+    console.log(String(expdate))
+
+    const addCustomer = `INSERT INTO customers(emri,cardnumber,cvv,expdate,adresa,numritel) VALUES("${emri}",${cardnumber},${cvv},"${expdate}","${adresa}",${numritel})`
+    dbCon.execute(addCustomer)
+    res.redirect('/produktet')
+})
+
 module.exports = router

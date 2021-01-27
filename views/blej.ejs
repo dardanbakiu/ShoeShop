@@ -13,20 +13,20 @@
 
     <div style="display: flex;">
         <div style="margin: 1%">
-            <img class="shoeImg" src="/static/uploads/<%-kepuca.emrifotos%>" alt="">
-            <p>Madhesia : <%-kepuca.madhesia%>
+            <img width="70%" class="shoeImg" src="/static/uploads/<%-kepuca.emrifotos%>" alt="">
+            <p style="font-size: 200%;">Madhesia : <%-kepuca.madhesia%>
             </p>
-            <p>Cmimi : <%-kepuca.cmimi%>
+            <p style="font-size: 200%;">Cmimi : <%-kepuca.cmimi%> $
             </p>
-            <p>Emri Kepuces : <%-kepuca.emrikepuces%>
+            <p style="font-size: 200%;">Emri Kepuces : <%-kepuca.emrikepuces%>
             </p>
-            <p>Firma : <%-kepuca.firma%>
+            <p style="font-size: 200%;">Firma : <%-kepuca.firma%>
             </p>
-            <a href="/produktet/blej/<%-kepuca.id%>"><button>Blej</button></a>
+            <!-- <a href="/produktet/blej/<%-kepuca.id%>"><button>Blej</button></a> -->
         </div>
         <div style="margin: 2% 15%">
             <h2 style="text-align: center;">Beje Porosine</h2>
-            <form action="/checkout" method="POST">
+            <form action="/checkout/<%-kepuca.id%>" method="POST">
                 <input type="text" name="emri" id="" placeholder="Emri Mbiemri">
                 <input type="number" name="cardnumber" id="" placeholder="Card Number">
                 <input type="text" name="cvv" id="" placeholder="cvv">
